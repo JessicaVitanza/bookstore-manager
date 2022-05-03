@@ -7,7 +7,7 @@
 class Magazine extends Publication{ 
 
     constructor(title, publisher, release, periodicity, type, price, copies, discount, releaseDate){ 
-        super(title, publisher, type, price, copies, discount);
+        super(title, publisher, type, price, copies, discount, 20);
         this. release = release;
         this.periodicity = periodicity; 
         this.releaseDate = releaseDate;
@@ -22,12 +22,12 @@ class Magazine extends Publication{
         return magazineString;
     } 
 
-    getPublicPrice(){ 
+    // getPublicPrice(){ 
 
-                const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
-                const tax = this.price * 0.2; 
-                const publicPrice = publicPriceWithOutTax + tax;
+    //    const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
+    //    const tax = this.price * 0.2; 
+    //    const publicPrice = publicPriceWithOutTax + tax;
                 
-                return publicPrice;
-            }
+    //    return publicPrice;
+    //  }
 }

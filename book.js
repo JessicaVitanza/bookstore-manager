@@ -7,7 +7,7 @@
 class Book extends Publication { 
 
     constructor(title, author, publisher, type, price, copies, pages, yop, discount){ 
-        super(title, publisher, type, price, copies, discount)
+        super(title, publisher, type, price, copies, discount, 10)
         this.author = author;
         this.pages = pages; 
         this.yop = yop; 
@@ -22,14 +22,14 @@ class Book extends Publication {
         return bookString;
     } 
 
-    getPublicPrice(){ 
+    // getPublicPrice(){ 
 
-        const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
-        const tax = this.price * 0.1; 
-        const publicPrice = publicPriceWithOutTax + tax;
+    //     const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
+    //     const tax = this.price * 0.1; 
+    //     const publicPrice = publicPriceWithOutTax + tax;
 
-        return publicPrice;
-    }
+    //     return publicPrice;
+    // }
 }
 
 
