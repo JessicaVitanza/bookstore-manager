@@ -26,19 +26,20 @@ class Book{
                            'Price: ' + this.price + '\n' + 
                            'Copies: ' + this.copies + '\n' + 
                            'Pages: ' + this.pages + '\n' + 
-                           'yop: ' + this.yop + '\n' +
-                           'discount: ' + this.discount; 
+                           'Year of Production: ' + this.yop + '\n' +
+                           'Discount: ' + this.discount + '%'; 
                            
         return bookString;
     } 
 
     getPublicPrice(book){ 
-// price di partenza + tasse 10% - eventuale discount in % + 30%; 
+
         const tax = this.price * 10 /100; 
         const discount = this.price * this.discount / 100; 
         const library = this.price * 30 / 100; 
-
         const publicPrice = this.price + tax - discount + library; 
+
+        //const publicPrice = (this.price * 10 /100) - (this.price * this.discount / 100) + (this.price * 30 / 100); 
 
         return publicPrice;
     }

@@ -26,14 +26,14 @@ class Magazine{
                           'Type: ' + this.type + '\n'+  
                           'Price: ' + this.price + '\n' + 
                           'Copies: ' + this.copies + '\n' + 
-                          'discount: ' + this.discount + '\n' + 
-                          'release: ' + this.release;
+                          'Discount: ' + this.discount + '%' + '\n' + 
+                          'Release: ' + this.release;
                            
         return magString;
     } 
 
     getPublicPrice(Magazine){ 
-        // price di partenza + tasse 10% - eventuale discount in % + 30%; 
+    
                 const tax = this.price * 20 /100; 
                 const discount = this.price * this.discount / 100; 
                 const library = this.price * 30 / 100; 
