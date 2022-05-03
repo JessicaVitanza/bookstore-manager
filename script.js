@@ -1,22 +1,14 @@
 
-const book1 = new Book('Jurassic Park', 'Michael Crichton', 'Oliver Johnson', 'SciFi', 15, '10000', '300', 1990, 30);
-console.log(book1); 
-console.log(book1.toString()); 
-console.log('Public price: ', book1.getPublicPrice(), '$');  
+const book1 = new Book('Jurassic Park', 'Michael Crichton', 'Oliver Johnson', 'SciFi', 15, 1000, 300, 1990, 15);
+console.log(book1.toString());  
 
-const book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 'Ace Books', 'Fantasy', 26, '120000', '1200', 1955, 30);
-console.log(book2); 
+const book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 'Ace Books', 'Fantasy', 26, 12000, 1200, 1955, 10);
 console.log(book2.toString()); 
-console.log('Public price: ', book2.getPublicPrice(), '$'); 
 
-const magazine1 = new Magazine('Vogue', 'Anna Wintour', 'w', 'fashion', 10, 156464643548, 30, 256);
-console.log(magazine1); 
-console.log(magazine1.magToString()); 
-console.log('Public price: ', magazine1.getPublicPrice(), '$'); 
+const magazine1 = new Magazine('Vogue', 'Anna Wintour', 12, 'settimanale', 'fashion', 10, 14658, 30, new Date);
+console.log(magazine1.toString()); 
 
-const magazine2 = new Magazine('Focus', 'Arnoldo Mondadori Editori', 'm', 'Scienza', 7, 64643548, 30, 200);
-console.log(magazine2); 
-console.log(magazine2.magToString()); 
-console.log('Public price: ', magazine2.getPublicPrice(), '$');
+const magazine2 = new Magazine('Focus', 'Arnoldo Mondadori Editore', 8, 'mensile', 'Scienza', 7, 648, 20, new Date); 
+console.log(magazine2.toString()); 
 
 

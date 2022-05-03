@@ -4,42 +4,30 @@
 // toString()
 // getPublicPrice() => price + tax 20% - discount + 30%
 
-class Magazine{ 
+class Magazine extends Publication{ 
 
-    constructor(title, editor, periodicity, type, price, copies, discount, release){ 
-        this.title = title; 
-        this.editor = editor; 
+    constructor(title, publisher, release, periodicity, type, price, copies, discount, releaseDate){ 
+        super(title, publisher, type, price, copies, discount);
+        this. release = release;
         this.periodicity = periodicity; 
-        this.type = type; 
-        this.price = price; 
-        this.copies = copies; 
-        this.discount = discount; 
-        this.release = release;
+        this.releaseDate = releaseDate;
     } 
 
-    magToString(){  
-        const periodicity = this.periodicity === 'w' ? 'weekly' : 'monthly';
-
-        const magString = 'Title: ' + this.title + '\n' + 
-                          'Editor: ' + this.editor + '\n' + 
-                          'Periodicity: ' + periodicity + '\n' + 
-                          'Type: ' + this.type + '\n'+  
-                          'Price: ' + this.price + '\n' + 
-                          'Copies: ' + this.copies + '\n' + 
-                          'Discount: ' + this.discount + '%' + '\n' + 
-                          'Release: ' + this.release;
+    toString(){ 
+        const magazineString = super.toString() + '\n' + 
+                               'Number: ' + this.release + '\n' + 
+                               'Periodicity: ' + this.periodicity + '\n' + 
+                               'Release Date: ' + this.releaseDate;
                            
-        return magString;
+        return magazineString;
     } 
 
-    getPublicPrice(Magazine){ 
-    
-                const tax = this.price * 20 /100; 
-                const discount = this.price * this.discount / 100; 
-                const library = this.price * 30 / 100; 
-        
-                const publicPrice = this.price + tax - discount + library; 
-        
+    getPublicPrice(){ 
+
+                const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
+                const tax = this.price * 0.2; 
+                const publicPrice = publicPriceWithOutTax + tax;
+                
                 return publicPrice;
             }
 }

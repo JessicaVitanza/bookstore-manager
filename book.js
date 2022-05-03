@@ -4,42 +4,29 @@
 // toString()
 // getPublicPrice() => price + tax 10% - discount + 30%
 
-class Book{ 
+class Book extends Publication { 
 
     constructor(title, author, publisher, type, price, copies, pages, yop, discount){ 
-        this.title = title; 
-        this.author = author; 
-        this.publisher = publisher; 
-        this.type = type; 
-        this.price = price; 
-        this.copies = copies; 
+        super(title, publisher, type, price, copies, discount)
+        this.author = author;
         this.pages = pages; 
         this.yop = yop; 
-        this.discount = discount; 
     } 
 
     toString(){ 
-        const bookString = 'Title: ' + this.title + '\n' + 
-                           'Author: ' + this.author + '\n' + 
-                           'Publisher: ' + this.publisher + '\n' + 
-                           'Type: ' + this.type + '\n'+  
-                           'Price: ' + this.price + '\n' + 
-                           'Copies: ' + this.copies + '\n' + 
+        const bookString = super.toString() + '\n' + 
+                           'Author: ' + this.author + '\n' +  
                            'Pages: ' + this.pages + '\n' + 
-                           'Year of Production: ' + this.yop + '\n' +
-                           'Discount: ' + this.discount + '%'; 
+                           'Year of Production: ' + this.yop;
                            
         return bookString;
     } 
 
-    getPublicPrice(book){ 
+    getPublicPrice(){ 
 
-        const tax = this.price * 10 /100; 
-        const discount = this.price * this.discount / 100; 
-        const library = this.price * 30 / 100; 
-        const publicPrice = this.price + tax - discount + library; 
-
-        //const publicPrice = (this.price * 10 /100) - (this.price * this.discount / 100) + (this.price * 30 / 100); 
+        const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
+        const tax = this.price * 0.1; 
+        const publicPrice = publicPriceWithOutTax + tax;
 
         return publicPrice;
     }
