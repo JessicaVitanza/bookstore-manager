@@ -1,38 +1,35 @@
-// Book properties: title, author, editor, type, price, copies, pages, yop, discount
+class Book extends Publication{
 
-// methods: 
-// toString()
-// getPublicPrice() => price + tax 10% - discount + 30%
-
-class Book extends Publication { 
-
-    constructor(title, author, publisher, type, price, copies, pages, yop, discount){ 
-        super(title, publisher, type, price, copies, discount, 10)
-        this.author = author;
-        this.pages = pages; 
-        this.yop = yop; 
-    } 
-
-    toString(){ 
-        const bookString = super.toString() + '\n' + 
-                           'Author: ' + this.author + '\n' +  
-                           'Pages: ' + this.pages + '\n' + 
-                           'Year of Production: ' + this.yop;
-                           
-        return bookString;
-    } 
-
-    // getPublicPrice(){ 
-
-    //     const publicPriceWithOutTax = super.getPublicPriceWithOutTax();
-    //     const tax = this.price * 0.1; 
-    //     const publicPrice = publicPriceWithOutTax + tax;
-
-    //     return publicPrice;
+    constructor(title, author, publisher = 'Non disponibile', type = 'Non classificato', price = -1, copies = 0, pages = -1, yop = -1, discount = 0) {
+      super(title, publisher, type, price, copies, discount, 10);
+      this.author = author;
+      this.pages = pages;
+      this.yop = yop;
+    }
+  
+    toString(){
+  
+      const pages = this.pages > 0 ? this.pages : 'Sconosciute';
+  
+      const year = this.yop > 0 ? this.yop : 'Sconosciuto'
+  
+      const bookString = super.toString() + '\n' +
+                         'Autore: ' + this.author + '\n' +
+                         'Pagine: ' + pages + '\n' +
+                         'Anno di Pubblicazione: ' + year;
+      return bookString;
+    }
+  
+    // getPublicPrice() {
+    //   const publicPriceWithoutTax = super.getPublicPriceWithoutTax();
+    //   const tax = this.price * 0.1;
+    //   const publicPrice = publicPriceWithoutTax + tax;
+    //   const roundedPrice = this.round(publicPrice, 2);
+  
+    //   return roundedPrice;
     // }
-}
-
-
+  
+  }
 
 
 
